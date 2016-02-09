@@ -30,8 +30,15 @@ class TableViewController: UITableViewController {
             self.students.append(textField.text!)
             self.tableView.reloadData()
         }
+        let cancelAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction) -> Void in
+            
+        }
         
         
+        
+        alert.addAction(saveAlertAction)
+        alert.addAction(cancelAlertAction)
+     presentViewController(alert, animated: true, completion: nil)
         
     }
 

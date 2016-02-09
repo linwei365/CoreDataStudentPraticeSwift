@@ -10,7 +10,8 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-
+    let student  = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,15 +43,15 @@ class TableViewController: UITableViewController {
         return 0
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    */
+   
 
     /*
     // Override to support conditional editing of the table view.

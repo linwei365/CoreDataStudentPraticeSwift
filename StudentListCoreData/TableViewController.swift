@@ -26,14 +26,24 @@ class TableViewController: UITableViewController {
         
         let manangedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         //step 11 create a request from entity
+        
         let request = NSFetchRequest(entityName: "Student")
         
+        //step 12 excute manangedObjectContext retchRequest and set it back to the array
+        
+        let err:NSError?
+      
         do{
             try students = manangedObjectContext.executeFetchRequest(request) as! [Student]
         }
-        catch{
+        catch let error as NSError{
             
+            err = error
             
+            if err != nil {
+                
+                print("an error loading data from core Data " )
+            }
         }
         
  
@@ -53,14 +63,21 @@ class TableViewController: UITableViewController {
         student.setValue(name, forKey: "name")
         
         //step 8 save
+        let error: NSError?
         
         do {
             try manangedObjectContext.save()
             //step 9 append manangedObjectContext into the array
             students.append(student)
         }
-        catch{
+        catch let errorB as NSError {
             
+            error = errorB
+            
+            if error != nil {
+                
+                print("error to save")
+            }
             
         }
         

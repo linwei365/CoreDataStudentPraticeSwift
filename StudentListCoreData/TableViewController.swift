@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    let students  = [String]()
+    var students  = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,15 @@ class TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     @IBAction func AddButtonOnClick(sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Add Student", message: "Enter A New Student Name", preferredStyle: .Alert)
+        
+        let saveAlertAction = UIAlertAction(title: "Save", style: .Default) { (action:UIAlertAction) -> Void in
+            let textField =  alert.textFields![0] as UITextField
+            self.students.append(textField.text!)
+            self.tableView.reloadData()
+        }
+        
         
         
     }

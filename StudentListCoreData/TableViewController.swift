@@ -34,6 +34,9 @@ class TableViewController: UITableViewController {
             
         }
         
+        alert.addTextFieldWithConfigurationHandler { (textField:UITextField) -> Void in
+             
+        }
         
         
         alert.addAction(saveAlertAction)

@@ -15,6 +15,8 @@
 		65C87DB41C6A141A0001AF82 /* StudentListCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C87DB31C6A141A0001AF82 /* StudentListCoreDataTests.swift */; };
 		65C87DBF1C6A141A0001AF82 /* StudentListCoreDataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C87DBE1C6A141A0001AF82 /* StudentListCoreDataUITests.swift */; };
 		65C87DCD1C6A14E80001AF82 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C87DCC1C6A14E80001AF82 /* TableViewController.swift */; };
+		65C87DD01C6A36EA0001AF82 /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C87DCE1C6A36EA0001AF82 /* Student+CoreDataProperties.swift */; };
+		65C87DD11C6A36EA0001AF82 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C87DCF1C6A36EA0001AF82 /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		65C87DBE1C6A141A0001AF82 /* StudentListCoreDataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListCoreDataUITests.swift; sourceTree = "<group>"; };
 		65C87DC01C6A141A0001AF82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65C87DCC1C6A14E80001AF82 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		65C87DCE1C6A36EA0001AF82 /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Student+CoreDataProperties.swift"; path = "../Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65C87DCF1C6A36EA0001AF82 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		65C87D9A1C6A141A0001AF82 /* StudentListCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				65C87DCE1C6A36EA0001AF82 /* Student+CoreDataProperties.swift */,
+				65C87DCF1C6A36EA0001AF82 /* Student.swift */,
 				65C87D9B1C6A141A0001AF82 /* AppDelegate.swift */,
 				65C87D9F1C6A141A0001AF82 /* Main.storyboard */,
 				65C87DCC1C6A14E80001AF82 /* TableViewController.swift */,
@@ -261,6 +267,8 @@
 			files = (
 				65C87D9C1C6A141A0001AF82 /* AppDelegate.swift in Sources */,
 				65C87DCD1C6A14E80001AF82 /* TableViewController.swift in Sources */,
+				65C87DD01C6A36EA0001AF82 /* Student+CoreDataProperties.swift in Sources */,
+				65C87DD11C6A36EA0001AF82 /* Student.swift in Sources */,
 				65C87DA41C6A141A0001AF82 /* StudentListCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

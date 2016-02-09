@@ -15,7 +15,9 @@ class TableViewController: UITableViewController {
     
 // step 2
     
-    var students = [NSManagedObject]()
+//    var students = [NSManagedObject]()
+    
+    var students = [Student]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,8 @@ class TableViewController: UITableViewController {
         
         let err:NSError?
         do{
-           try students = managedObjectContext.executeFetchRequest(request) as! [NSManagedObject]
+//           try students = managedObjectContext.executeFetchRequest(request) as! [NSManagedObject]
+            try students = managedObjectContext.executeFetchRequest(request) as! [Student]
             
         }
         catch let error1 as NSError {
@@ -63,7 +66,7 @@ class TableViewController: UITableViewController {
        
         // step 6
         // insert entity "Student" into managedObjectContext
-        let student =  NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: managedObjectContext)
+        let student =  NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: managedObjectContext) as! Student
     
         //step 7 
         
@@ -150,11 +153,12 @@ class TableViewController: UITableViewController {
 //        cell.textLabel?.text = students[indexPath.row]
         
         //step 3
-        let student:NSManagedObject = students[indexPath.row]
+//        let student:NSManagedObject = students[indexPath.row]
+//        
+//        cell.textLabel?.text = student.valueForKey("name") as? String
         
-        cell.textLabel?.text = student.valueForKey("name") as? String
         
-        
+        cell.textLabel?.text = students[indexPath.row].name 
         
         // Configure the cell...
 

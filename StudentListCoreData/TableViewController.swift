@@ -35,14 +35,17 @@ class TableViewController: UITableViewController {
         
         // step 12 excte moc request and asiging to the student array
         
-        
+        let err:NSError?
         do{
            try students = managedObjectContext.executeFetchRequest(request) as! [NSManagedObject]
             
         }
-        catch{
+        catch let error1 as NSError {
             
+            err =  error1
+            if err != nil {
             print("loading data problem")
+            }
         }
         
  

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+//step 1 import CoreData
+import CoreData
 
 class TableViewController: UITableViewController {
-    
-    var students  = [String]()
+    //step 2 create array NSManageObject type this example the Student is a NSManageObject
+    var students  = [Student]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +22,62 @@ class TableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //step 10  create a intial  moc
+        
+        let manangedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        //step 11 create a request from entity
+        let request = NSFetchRequest(entityName: "Student")
+        
+        do{
+            try students = manangedObjectContext.executeFetchRequest(request) as! [Student]
+        }
+        catch{
+            
+            
+        }
+        
+ 
+        
     }
+    
+    
+    func saveStudent(name:String){
+        
+        //step 5 create manangedObjectContext from delegate
+        let manangedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        //step 6 insert entity into manangedObjectContext
+        
+        let student = NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: manangedObjectContext) as! Student
+    
+        // step 7 set value for key
+        student.setValue(name, forKey: "name")
+        
+        //step 8 save
+        
+        do {
+            try manangedObjectContext.save()
+            //step 9 append manangedObjectContext into the array
+            students.append(student)
+        }
+        catch{
+            
+            
+        }
+        
+        
+    }
+    
     @IBAction func AddButtonOnClick(sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add Student", message: "Enter A New Student Name", preferredStyle: .Alert)
         
         let saveAlertAction = UIAlertAction(title: "Save", style: .Default) { (action:UIAlertAction) -> Void in
             let textField =  alert.textFields![0] as UITextField
-            self.students.append(textField.text!)
+            
+            //step 4 cusotm save
+            
+            self.saveStudent(textField.text!)
+//            self.students.append(textField.text!)
             self.tableView.reloadData()
         }
         let cancelAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction) -> Void in
@@ -65,8 +115,8 @@ class TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-
-        cell.textLabel?.text = students[indexPath.row]
+//step 3
+        cell.textLabel?.text = students[indexPath.row].name
         
         
         // Configure the cell...

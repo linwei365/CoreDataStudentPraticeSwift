@@ -7,10 +7,15 @@
 //
 
 import UIKit
-
+// step 1
+import CoreData
 class TableViewController: UITableViewController {
     
-    var students  = [String]()
+//    var students  = [String]()
+    
+// step 2
+    
+    var students = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,9 @@ class TableViewController: UITableViewController {
         
         let saveAlertAction = UIAlertAction(title: "Save", style: .Default) { (action:UIAlertAction) -> Void in
             let textField =  alert.textFields![0] as UITextField
-            self.students.append(textField.text!)
+            
+//            self.students.append(textField.text!)
+           
             self.tableView.reloadData()
         }
         let cancelAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction) -> Void in
@@ -66,7 +73,13 @@ class TableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = students[indexPath.row]
+//        cell.textLabel?.text = students[indexPath.row]
+        
+        //step 3
+        let student:NSManagedObject = students[indexPath.row]
+        
+        cell.textLabel?.text = student.valueForKey("name") as! String
+        
         
         
         // Configure the cell...

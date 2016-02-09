@@ -25,7 +25,72 @@ class TableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // step 10
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+        // step 11 fetch request
+        
+        let request = NSFetchRequest(entityName: "Student")
+        
+        // step 12 excte moc request and asiging to the student array
+        
+        
+        do{
+           try students = managedObjectContext.executeFetchRequest(request) as! [NSManagedObject]
+            
+        }
+        catch{
+            
+            print("loading data problem")
+        }
+        
+ 
+        
+        
+        
     }
+    
+    //step 4
+    func saveStudents (name:String){
+        
+        //step 5 create a managedObjectContext
+        
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+       
+        // step 6
+        // insert entity "Student" into managedObjectContext
+        let student =  NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: managedObjectContext)
+    
+        //step 7 
+        
+        // insert text to the enity object Student
+        student.setValue(name, forKey: "name")
+        
+        let err: NSError?
+        //step 8 moc save and store inside the students array
+        do {
+            try  managedObjectContext.save()
+           self.students.append(student)
+        }
+        catch let error1  as NSError {
+            
+           err = error1
+     
+            if err != nil {
+                print("problem saving data")
+            }
+            
+        }
+      
+        
+    
+    }
+    
+    
+    
+    
+    
     @IBAction func AddButtonOnClick(sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add Student", message: "Enter A New Student Name", preferredStyle: .Alert)
@@ -33,7 +98,13 @@ class TableViewController: UITableViewController {
         let saveAlertAction = UIAlertAction(title: "Save", style: .Default) { (action:UIAlertAction) -> Void in
             let textField =  alert.textFields![0] as UITextField
             
-//            self.students.append(textField.text!)
+           
+            
+            //  self.students.append(textField.text!)
+            //step 9 custome save func
+            
+            self.saveStudents(textField.text!)
+            
            
             self.tableView.reloadData()
         }
@@ -78,7 +149,7 @@ class TableViewController: UITableViewController {
         //step 3
         let student:NSManagedObject = students[indexPath.row]
         
-        cell.textLabel?.text = student.valueForKey("name") as! String
+        cell.textLabel?.text = student.valueForKey("name") as? String
         
         
         

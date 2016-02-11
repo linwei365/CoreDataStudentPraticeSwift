@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65918C9E1C6C4FF700C1BDC0 /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65918C9C1C6C4FF700C1BDC0 /* Student+CoreDataProperties.swift */; };
+		65918C9F1C6C4FF700C1BDC0 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65918C9D1C6C4FF700C1BDC0 /* Student.swift */; };
 		65C87D9C1C6A141A0001AF82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C87D9B1C6A141A0001AF82 /* AppDelegate.swift */; };
 		65C87DA11C6A141A0001AF82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C87D9F1C6A141A0001AF82 /* Main.storyboard */; };
 		65C87DA41C6A141A0001AF82 /* StudentListCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65C87DA21C6A141A0001AF82 /* StudentListCoreData.xcdatamodeld */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65918C9C1C6C4FF700C1BDC0 /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Student+CoreDataProperties.swift"; path = "../Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65918C9D1C6C4FF700C1BDC0 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
 		65C87D981C6A141A0001AF82 /* StudentListCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentListCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C87D9B1C6A141A0001AF82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65C87DA01C6A141A0001AF82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 		65C87D9A1C6A141A0001AF82 /* StudentListCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				65918C9C1C6C4FF700C1BDC0 /* Student+CoreDataProperties.swift */,
+				65918C9D1C6C4FF700C1BDC0 /* Student.swift */,
 				65C87D9B1C6A141A0001AF82 /* AppDelegate.swift */,
 				65C87D9F1C6A141A0001AF82 /* Main.storyboard */,
 				65C87DCC1C6A14E80001AF82 /* TableViewController.swift */,
@@ -261,6 +267,8 @@
 			files = (
 				65C87D9C1C6A141A0001AF82 /* AppDelegate.swift in Sources */,
 				65C87DCD1C6A14E80001AF82 /* TableViewController.swift in Sources */,
+				65918C9E1C6C4FF700C1BDC0 /* Student+CoreDataProperties.swift in Sources */,
+				65918C9F1C6C4FF700C1BDC0 /* Student.swift in Sources */,
 				65C87DA41C6A141A0001AF82 /* StudentListCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +496,7 @@
 				65C87DC51C6A141A0001AF82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65C87DC61C6A141A0001AF82 /* Build configuration list for PBXNativeTarget "StudentListCoreDataTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +505,7 @@
 				65C87DC81C6A141A0001AF82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65C87DC91C6A141A0001AF82 /* Build configuration list for PBXNativeTarget "StudentListCoreDataUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +514,7 @@
 				65C87DCB1C6A141A0001AF82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

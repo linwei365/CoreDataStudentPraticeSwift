@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
     
-    var students  = [String]()
+    var students  = [Student]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +22,25 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    
+    
+    
+    func saveStudent(name:String){
+        let manangedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let student =  NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: manangedObjectContext)
+        
+    }
+    
     @IBAction func AddButtonOnClick(sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add Student", message: "Enter A New Student Name", preferredStyle: .Alert)
         
         let saveAlertAction = UIAlertAction(title: "Save", style: .Default) { (action:UIAlertAction) -> Void in
             let textField =  alert.textFields![0] as UITextField
-            self.students.append(textField.text!)
+//            self.students.append(textField.text!)
+            self.saveStudent(textField.text!)
+            
             self.tableView.reloadData()
         }
         let cancelAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction) -> Void in
@@ -66,7 +79,7 @@ class TableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = students[indexPath.row]
+        cell.textLabel?.text = students[indexPath.row].name
         
         
         // Configure the cell...
